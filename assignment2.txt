@@ -1,0 +1,181 @@
+  					                               ASSIGNMENT -02
+									MUKESH SAHANI
+									  CO18333
+
+Q1.
+
+#include <stdio.h>
+void main()  //first question for assignment
+{	int a,b,c;
+	printf("please enter the number and press enter::");
+	printf("number 1::");
+	scanf("%d",&a);
+	printf("number 2::");
+	scanf("%d",&b);
+	printf("number 3::");
+	scanf("%d",&c);
+	if(((a==b ) && (b==c)) || ((a==b) || (b==c) || (c==a))){
+		printf("0\n");
+			}
+	else{
+		printf("1\n");
+		}
+}
+
+
+/*
+                         output
+...............................................................
+number1:: 1
+number2:: 2
+number3:: 3
+
+o/p ...... 1
+................................................................
+number1:: 1
+number2:: 1
+number3:: 2
+o/p....... 0
+................................................................
+number1:: 1
+number2:: 1
+number3:: 1
+o/p....... 0
+...............................................................
+*/
+
+Q2.
+
+#include <stdio.h>
+void main()  //2 question
+{
+	printf("please enter the number and press enter\n");
+	int m,n;
+	printf("please enter the number 1::");
+	scanf("%d",&m);
+	printf("please enter the number 2::");
+	scanf("%d",&n);
+
+	if(m%n==0){
+		printf("result is %d\n",m/n);
+		}
+	else{
+		printf("result is 0\n");
+		}
+}
+
+/*   	OUTPUT	
+
+please enter the number 1::5
+please enter the number 2::4
+
+output --0
+
+*/
+
+/*
+please enter the number 1::10
+please enter the number 2::5
+
+output --2
+
+*/
+
+Q3.
+
+#include <stdio.h>
+void main()
+{	long int s1,s2,s3;
+	printf("please enter the side1::");
+	scanf("%ld",&s1);
+	printf("please enter the side2::");
+	scanf("%ld",&s2);
+	printf("please enter the side3::");
+	scanf("%ld",&s3);
+	if((s1+s2>s3) && (s2+s3>s1) && (s1+s3>s2)){
+		printf("1\n");
+}
+
+	else
+		printf("0");
+
+
+}
+
+/*      output
+please enter the side 1:: 1
+please enter the side 2:: 2
+please enter the side 3:: 3
+ output -- 0
+*/
+
+/*
+please enter the side 1:: 5
+please enter the side 2:: 4
+please enter the side 3:: 3
+output -- 1
+*/
+
+Q6.
+
+/* conversion romam to decimal */
+#include <stdio.h>
+#include <string.h>
+int d_number(char c);//d_number stands for decimal number
+void main(){
+	char r_number[500];
+	int i=0;
+	long int number=0;
+	printf("ENTER ROMAN NUMBER --only I, V, X, L, C, D, W\n");
+	scanf("%s",r_number);
+	while(r_number[i]){
+		if(d_number(r_number[i]<0)){
+			printf("INVLID ROMAN NUMBER\n");
+			break;}
+		if((strlen(r_number)-i) >2){
+			if(d_number(r_number[i]) < d_number(r_number[i+2])){
+			printf("INVALID ROMAN NUMBER\n");
+			break;}}
+		if(d_number(r_number[i])>=d_number(r_number[i+1])){
+		number=number + d_number(r_number[i]);}
+
+		else{
+
+		number=number +  (d_number(r_number[i+1])-d_number(r_number[i]));
+		i++;}
+		i++;}
+	printf("its decimal value is : %ld\n",number);}
+
+
+
+int d_number(char c){
+	int val=0;
+
+	switch(c)
+		{
+		case 'I': val=1;
+		break;
+		case 'V': val=5;
+		break;
+		case 'X': val=10;
+		break;
+		case 'L': val=50;
+		break;
+		case 'C': val=100;
+		break;
+		case 'D': val=500;
+		break;
+		case 'M': val=1000;
+		break;
+		case '\0': val=0;
+		break;
+		default: val=-1;
+}
+
+		return (val);
+}
+/*		outputs
+
+ENTER THE ROMAN NUMBER:: LI
+ITS DECIMAL VALUE IS 51
+*/
